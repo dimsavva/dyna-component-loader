@@ -17,6 +17,9 @@ export class DashboardService {
 
       new AdItem(HeroJobAdComponent,   {headline: 'Openings in all departments',
                                         body: 'Apply today'}),
+
+      new AdItem(HeroJobAdComponent,   {headline: 'Openings in all d',
+                                        body: 'Apply today'}),
     ];
   }
 }
