@@ -8,13 +8,13 @@ import { AdComponent } from './ad.component';
   selector: 'app-ad-banner',
   template: `
               <div class="ad-banner-example">
-                <h3>Advertisements</h3>
                 <ng-template ad-host></ng-template>
               </div>
             `
 })
 export class AdBannerComponent implements OnInit, OnDestroy {
-  @Input() ads: AdItem[];
+  @Input() ad: AdItem;
+
   currentAdIndex = -1;
   @ViewChild(AdDirective) adHost: AdDirective;
   interval: any;
@@ -31,8 +31,7 @@ export class AdBannerComponent implements OnInit, OnDestroy {
   }
 
   loadComponent() {
-    this.currentAdIndex = (this.currentAdIndex + 1) % this.ads.length;
-    let adItem = this.ads[this.currentAdIndex];
+    let adItem = this.ad;
 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
 
@@ -46,7 +45,7 @@ export class AdBannerComponent implements OnInit, OnDestroy {
   getAds() {
     this.interval = setInterval(() => {
       this.loadComponent();
-    }, 3000);
+    }, 30000);
   }
 }
 

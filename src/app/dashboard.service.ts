@@ -5,8 +5,8 @@ import { HeroProfileComponent } from './hero-profile.component';
 import { AdItem }               from './ad-item';
 
 @Injectable()
-export class AdService {
-  getAds() {
+export class DashboardService {
+  getItems() {
     return [
       new AdItem(HeroProfileComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
 

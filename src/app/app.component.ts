@@ -1,30 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AdService }         from './ad.service';
+import { DashboardService }  from './dashboard.service';
 import { AdItem }            from './ad-item';
 
 @Component({
   selector: 'app-root',
   template: `
-    <div>
-      <app-ad-banner [ads]="ads"></app-ad-banner>
+    <div *ngFor="let ad of ads">
+      <app-ad-banner [ad]="ad"></app-ad-banner>
+          <br>
     </div>
   `
 })
 export class AppComponent implements OnInit {
   ads: AdItem[];
 
-  constructor(private adService: AdService) {}
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
-    this.ads = this.adService.getAds();
+    this.ads = this.dashboardService.getItems();
   }
 }
 
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
