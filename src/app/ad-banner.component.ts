@@ -12,23 +12,17 @@ import { AdComponent } from './ad.component';
               </div>
             `
 })
-export class AdBannerComponent implements OnInit, OnDestroy {
+export class AdBannerComponent implements OnInit {
   @Input() ad: AdItem;
 
-  currentAdIndex = -1;
   @ViewChild(AdDirective) adHost: AdDirective;
-  interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.loadComponent();
     this.getAds();
   }
 
-  ngOnDestroy() {
-    clearInterval(this.interval);
-  }
 
   loadComponent() {
     let adItem = this.ad;
@@ -43,15 +37,8 @@ export class AdBannerComponent implements OnInit, OnDestroy {
   }
 
   getAds() {
-    this.interval = setInterval(() => {
+    
       this.loadComponent();
-    }, 30000);
+     
   }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
