@@ -27,10 +27,6 @@ import { ControlItem }            from './control-item';
 
     </div>
  
-
-
-
-
   </div>
   
   
@@ -48,7 +44,7 @@ export class AppComponent implements OnInit {
     },
     {
       id: 1,
-      columns: [{ span: 4 }, { span: 4 }, { span: 4 }]
+      columns: [{ span: 4 }, { span: 4 }, { span: 4, control : "HeroJobAdComponent" }]
 
     }
 
