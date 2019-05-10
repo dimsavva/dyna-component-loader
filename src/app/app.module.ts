@@ -4,7 +4,7 @@ import { AppComponent }         from './app.component';
 import { HeroJobAdComponent }   from './hero-job-ad.component';
 import { AdBannerComponent }    from './ad-banner.component';
 import { HeroProfileComponent } from './hero-profile.component';
-import { AdDirective }          from './ad.directive';
+import { ControlDirective }          from './control.directive';
 import { DashboardService }            from './dashboard.service';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { DashboardService }            from './dashboard.service';
                   AdBannerComponent,
                   HeroJobAdComponent,
                   HeroProfileComponent,
-                  AdDirective ],
+                  ControlDirective ],
   entryComponents: [ HeroJobAdComponent, HeroProfileComponent ],
   bootstrap: [ AppComponent ]
 })

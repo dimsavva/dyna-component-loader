@@ -1,21 +1,21 @@
 import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
 
-import { AdDirective } from './ad.directive';
-import { AdItem }      from './ad-item';
-import { AdComponent } from './ad.component';
+import { ControlDirective } from './control.directive';
+import { ControlItem }      from './control-item';
+import { ControlComponent } from './control.component';
 
 @Component({
-  selector: 'app-ad-banner',
+  selector: 'app-control-banner',
   template: `
               <div class="ad-banner-example">
-                <ng-template ad-host></ng-template>
+                <ng-template control-host></ng-template>
               </div>
             `
 })
 export class AdBannerComponent implements OnInit {
-  @Input() ad: AdItem;
+  @Input() control: ControlItem;
 
-  @ViewChild(AdDirective) adHost: AdDirective;
+  @ViewChild(ControlDirective) controlHost: ControlDirective;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -25,15 +25,15 @@ export class AdBannerComponent implements OnInit {
 
 
   loadComponent() {
-    let adItem = this.ad;
+    let adItem = this.control;
 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
 
-    let viewContainerRef = this.adHost.viewContainerRef;
+    let viewContainerRef = this.controlHost.viewContainerRef;
     viewContainerRef.clear();
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<AdComponent>componentRef.instance).data = adItem.data;
+    (<ControlComponent>componentRef.instance).data = adItem.data;
   }
 
   getAds() {
