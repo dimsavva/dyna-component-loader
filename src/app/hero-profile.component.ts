@@ -1,5 +1,4 @@
 import { Component, Input }  from '@angular/core';
-
 import { ControlComponent }       from './control.component';
 
 @Component({
